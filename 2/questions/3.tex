@@ -1,0 +1,46 @@
+\smalltitle{سوال 3}
+\begin{enumerate}
+    \item \phantom{text} \begin{latin}
+        \begin{center}
+            \begin{tikzpicture}[->, >=stealth', auto, semithick, node distance=3cm]
+            \tikzstyle{every state}=[fill=white,draw=black,thick,text=black,scale=1]
+            \node[state,initial]    (A)       {$0$};
+            \node[state]    (B)[right of=A]   {$1$};
+            \node[state]    (C)[right of=B]   {$2$};
+            \node[state]    (D)[right of=C]   {$\dots$};
+            \path
+            (A) edge[loop above]        node{$1-p$}	(A)
+            (A) edge[bend left,above]	node{$p$}	(B)
+            (B) edge[bend left,below]	node{$1-p$}	(A)
+            (B) edge[bend left,above]	node{$p$}	(C)
+            (C) edge[bend left,below]	node{$1-p$}	(B)
+            (C) edge[bend left,above]	node{$p$}	(D)
+            (D) edge[bend left,below]	node{$1-p$}	(C);
+            \end{tikzpicture}
+        \end{center}
+    \end{latin}
+    \item در ابتدا
+    \lr{transition matrix}
+    را تشکیل می دهیم.
+    \begin{gather*}
+        P = \begin{bmatrix}
+            1 - p & p & 0 & 0 & \dots & 0 \\
+            1 - p & 0 & p & 0 & \dots & 0 \\
+            0 & 1 - p & 0 & p & \dots & 0 \\
+            & & \vdots & & & 
+        \end{bmatrix}
+    \end{gather*}
+    سپس بردار احتمال شروع را تشکیل می‌دهیم:
+    \begin{gather*}
+        p(0) = \begin{bmatrix}
+            1 & 0 & 0 & \dots & 0
+        \end{bmatrix}
+    \end{gather*}
+    خواسته‌ی سوال برابر است با:
+    \begin{gather*}
+        p(0) \times P^{\infty}
+    \end{gather*}
+    که عملا برابر است با اولین سطر ماتریس
+    $P^{\infty}$.
+    % P := LinearAlgebra[Transpose](<<1-p,p,0,0,0>|<1-p,0,p,0,0>|<0,1-p,0,p,0>|<0,0,1-p,0,p>|<0,0,0,1-p,p>>);
+\end{enumerate}
