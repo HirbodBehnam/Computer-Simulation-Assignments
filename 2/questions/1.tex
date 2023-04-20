@@ -1,9 +1,45 @@
 \smalltitle{سوال 1}
-
-
-
-
-
+از
+\lr{NSPP}
+استفاده می‌کنیم. فرض کنید که در لحظه‌ی
+$T$
+رویداد ذکر شده در سوال رخ می‌دهد. در این صورت داریم:
+\begin{gather*}
+    \lambda(t) = \begin{cases}
+        2 & 0 \le t < T \\
+        3 & T \le t < 10
+    \end{cases}
+\end{gather*}
+می‌دانیم که داریم
+$\Lambda(t) = \int_{0}^{t} \lambda(s) ds$
+پس نتیجه می‌شود:
+\begin{gather*}
+    \Lambda(t) = \begin{cases}
+        \int_{0}^{t} 2 ds = 2t & 0 \le t < T \\
+        \int_{0}^{T} 2 ds + \int_{T}^{t} 3 ds = -T + 3 t & T \le t < 10
+    \end{cases}\\
+    \Lambda(10) = 30 - T\\
+    P(x = 5) = \frac{e^{-(30 - T)} (30 - T)^5}{5!}
+\end{gather*}
+حال به کمک یک انتگرال و احتمال شرطی به ازای مقدایر مختلف
+$T$
+از 0 تا 10 احتمال ذکر شده را حساب می‌کنیم. داریم:
+\begin{gather*}
+    \text{Answer} = \int_{0}^{10} P(x = 5 | T = t) P(T = t) dt
+\end{gather*}
+برای حساب کردن
+$P(T = t)$
+از
+\lr{PDF}
+توزیع گاما مطابق اسلاید‌ها استفاده می‌کنیم:
+\begin{gather*}
+    f_T(t) = \frac{2 \times 5}{(2 - 1)!} (2 \times 5 t)^{2 - 1} e^{-2 \times 5 \times t} = 100 t e^{-10t}
+\end{gather*}
+حال انتگرال مذکور به صورت زیر در می‌آید:
+\begin{gather*}
+    \text{Answer} = \int_{0}^{10} \frac{e^{-(30 - t)} (30 - t)^5}{5!} \times 100 t e^{-10t} dt \approx 2.25 \times 10^{-8}
+\end{gather*}
+\
 
 
 
