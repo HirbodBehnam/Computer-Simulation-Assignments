@@ -19,28 +19,47 @@
             \end{tikzpicture}
         \end{center}
     \end{latin}
-    \item در ابتدا
-    \lr{transition matrix}
-    را تشکیل می دهیم.
+    \item برای $P_0$ و $P_1$
+    داریم:
     \begin{gather*}
-        P = \begin{bmatrix}
-            1 - p & p & 0 & 0 & \dots & 0 \\
-            1 - p & 0 & p & 0 & \dots & 0 \\
-            0 & 1 - p & 0 & p & \dots & 0 \\
-            & & \vdots & & & 
-        \end{bmatrix}
+        P_0 = P_0 (1 - p) + P_1 (1 - p)\\
+        \implies P_0 - P_0 + P_0 p = P_1 (1 - p) \implies P_0 = \frac{1 - p}{p} P_1 
     \end{gather*}
-    سپس بردار احتمال شروع را تشکیل می‌دهیم:
+    و برای بقیه‌ی حالات داریم:
     \begin{gather*}
-        p(0) = \begin{bmatrix}
-            1 & 0 & 0 & \dots & 0
-        \end{bmatrix}
+        P_i = P_{i-1} p + P_{i+1} (1 - p)\\
     \end{gather*}
-    خواسته‌ی سوال برابر است با:
+    به عنوان مثال برای حالت
+    $P_1$ و $P_2$
+    داریم:
     \begin{gather*}
-        p(0) \times P^{\infty}
+        P_1 = P_{0} p + P_{2} (1 - p) = \frac{1 - p}{p} P_1 p + P_{2} (1 - p) = P_1 (1 - p) + P_{2} (1 - p)\\
+        \implies P_1 p = P_{2} (1 - p) \implies P_1 = \frac{1 - p}{p} P_2
     \end{gather*}
-    که عملا برابر است با اولین سطر ماتریس
-    $P^{\infty}$.
-    % P := LinearAlgebra[Transpose](<<1-p,p,0,0,0>|<1-p,0,p,0,0>|<0,1-p,0,p,0>|<0,0,1-p,0,p>|<0,0,0,1-p,p>>);
+    به صورت مشابه می‌توان نشان داد که
+    \begin{gather*}
+        P_i = \frac{1 - p}{p} P_{i+1} \implies P_{i+1} = \frac{p}{1 - p} P_i = (\frac{p}{1 - p})^{i} P_0
+    \end{gather*}
+    حال سعی می‌کنیم که
+    $P_0$
+    را پیدا کنیم. می‌دانیم که جمع تمامی احتمال‌ها برابر 1 است. پس داریم:
+    \begin{gather*}
+        \sum_{i = 0}^{\infty} (\frac{p}{1 - p})^{i} P_0 =  P_0 \sum_{i = 0}^{\infty} (\frac{p}{1 - p})^{i} = 1\\
+        \implies P_0 = \frac{1}{\sum_{i = 0}^{\infty} (\frac{p}{1 - p})^{i}} \stackrel{\frac{p}{1 - p} < 1}{=} 1 - \frac{p}{1 - p} = \frac{1 - 2p}{1 - p}\\
+        \implies P_i =  (\frac{p}{1 - p})^{i} \frac{1 - 2p}{1 - p} 
+    \end{gather*}
+    \item در قسمت قبل با توجه به اینکه
+    $p < 0.5$ بود نتیجه گرفتیم که
+    $\frac{p}{1 - p} < 1$
+    است. اما در صورتی که
+    $p > 0.5$
+    باشد آنگاه داریم:
+    $\frac{p}{1 - p} > 1$
+    و می‌دانیم که جمع سری هندسی
+    $\sum_{i=0}^{\infty} ar^i$
+    برای
+    $r > 1$
+    تعریف نمی‌شود. پس باید
+    $p < 0.5$ 
+    باشد.
 \end{enumerate}
