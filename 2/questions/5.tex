@@ -1,30 +1,48 @@
 \smalltitle{سوال 5}
-\begin{figure*}[h]
-    \centering
-    \begin{forest}
-    [
-        [شیر, edge label={node[midway,above,font=\scriptsize]{$\frac{1}{3}$}}
-            [شیر, edge label={node[midway,above,font=\scriptsize]{$\frac{1}{3}$}}
-                [{$\vdots$}]
-                [{$\vdots$}]
-            ]
-            [خط, edge label={node[midway,above,font=\scriptsize]{$\frac{2}{3}$}}
-                [{$\vdots$}]
-                [{$\vdots$}]
-            ]
-        ]
-        [خط, edge label={node[midway,above,font=\scriptsize]{$\frac{2}{3}$}}
-            [شیر, edge label={node[midway,above,font=\scriptsize]{$\frac{1}{3}$}}
-                [{$\vdots$}]
-                [{$\vdots$}]
-            ]
-            [خط, edge label={node[midway,above,font=\scriptsize]{$\frac{2}{3}$}}
-                [{$\vdots$}]
-                [{$\vdots$}]
-            ]
-        ]
-    ]
-    \end{forest}
-\end{figure*}
-
-
+در ابتدا
+\lr{markov chain}
+اینکه چگونه می‌توان به رشته‌ی مورد نظر سوال رسید را رسم می‌کنیم.
+\begin{latin}
+    \begin{center}
+        \begin{tikzpicture}[->, >=stealth', auto, semithick, node distance=3cm]
+        \tikzstyle{every state}=[fill=white,draw=black,thick,text=black,scale=1]
+        \node[state,initial]    (epsilon) {$q_\epsilon$};
+        \node[state]    (T)[right of=epsilon]   {$q_{T}$};
+        \node[state]    (TH)[right of=T]  {$q_{TH}$};
+        \node[state]    (THT)[right of=TH] {$q_{THT}$};
+        \path
+        (epsilon) edge[loop above]        node{$1/3$}	(epsilon)
+        (epsilon) edge[bend left,above]	node{$2/3$}	(T)
+        (T) edge[bend left,above]	node{$1/3$}	(TH)
+        (T) edge[loop above]	node{$2/3$}	(T)
+        (TH) edge[bend left,below]	node{$2/3$}	(THT)
+        (TH) edge[bend left,below]	node{$1/3$}	(epsilon)
+        (THT) edge[loop above]	node{$1$}	(THT);
+        \end{tikzpicture}
+    \end{center}
+\end{latin}
+معادلات زمان رسیدن به هر
+\lr{node}
+را می‌نویسیم:
+\begin{align*}
+    h(q_\epsilon) &= 1 + \frac{1}{3} h(q_\epsilon) + \frac{2}{3} h(q_{T})\\
+    h(q_{T}) &= 1 + \frac{1}{3} h(q_{TH}) + \frac{2}{3} h(q_{T})\\
+    h(q_{TH}) &= 1 + \frac{2}{3} h(q_{THT}) + \frac{1}{3} h(q_{\epsilon})\\
+    h(q_{THT}) &= 0
+\end{align*}
+پس داریم:
+\begin{align*}
+    h(q_\epsilon) &= 1 + \frac{1}{3} h(q_\epsilon) + \frac{2}{3} h(q_{T})\\
+    h(q_{T}) &= 1 + \frac{1}{3} (1 + \frac{1}{3} h(q_{\epsilon})) + \frac{2}{3} h(q_{T})\\
+    h(q_{TH}) &= 1 + \frac{1}{3} h(q_{\epsilon})\\
+    h(q_{THT}) &= 0
+\end{align*}
+و در نتیجه:
+\begin{align*}
+    h(q_\epsilon) &= 1 + \frac{1}{3} h(q_\epsilon) + \frac{2}{3} (4 + \frac{1}{3} h(q_{\epsilon}))\\
+    h(q_{T}) &= 3 + 1 + \frac{1}{3} h(q_{\epsilon})\\
+    h(q_{TH}) &= 1 + \frac{1}{3} h(q_{\epsilon})\\
+    h(q_{THT}) &= 0
+\end{align*}
+در نهایت داریم
+$h(q_\epsilon) = 8.25$
