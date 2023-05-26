@@ -1,1 +1,37 @@
 \section*{سوال 3}
+در ابتدا بررسی می‌کنیم که اگر سرور را همان داده‌های سوال نگه داریم چه قدر به صورت متوسط هزینه داریم:
+\begin{gather*}
+    \rho = \frac{\lambda}{c \mu} = \frac{12}{3 \times 5} = 0.8\\
+    P_0 = \Bigl(\sum_{n=0}^{3-1} \frac{(\frac{12}{5})^n}{n!} + (\frac{12}{5}^{3} \times \frac{1}{3!} \times \frac{3 \times 5}{3 \times 5 - 12}\Bigr)^{-1} = 0.056\\
+    L = 3 \times 0.8 + \frac{(3 \times 0.8)^{3+1} \times 0.056}{3 \times 3! \times (1 - 0.8)^2} = 4.989\\
+    w = \frac{4.989}{12} = 0.416\\
+    w_q = w - \frac{1}{\mu} = 0.416 - 0.2 = 0.216\\
+    \text{\lr{annual cost}} = 0.216 \times 12 \times 3600 \times 24 \times 365 \times 0.001 = 81639.263\$
+\end{gather*}
+برای حالت دوم داریم:
+\begin{gather*}
+    \rho = \frac{\lambda}{c \mu} = \frac{12}{3 \times 6} = 0.667\\
+    P_0 = \Bigl(\sum_{n=0}^{3-1} \frac{(\frac{12}{6})^n}{n!} + (\frac{12}{6}^{3} \times \frac{1}{3!} \times \frac{3 \times 6}{3 \times 6 - 12}\Bigr)^{-1} = 0.111\\
+    L = 3 \times 0.667 + \frac{(3 \times 0.667)^{3+1} \times 0.111}{3 \times 3! \times (1 - 0.667)^2} = 2.889\\
+    w = \frac{2.889}{12} = 0.241\\
+    w_q = w - \frac{1}{\mu} = 0.241 - 0.166 = 0.074\\
+    \text{\lr{annual cost}} = 0.074 \times 12 \times 3600 \times 24 \times 365 \times 0.001 = 28032\$
+    \end{gather*}
+که سر جمع
+$28032 + 50000 = 78032\$$
+هزینه دارد.
+
+در نهایت برای حالت اضافه کردن سرور نیز داریم:
+\begin{gather*}
+    \rho = \frac{\lambda}{c \mu} = \frac{12}{4 \times 5} = 0.6\\
+    P_0 = \Bigl(\sum_{n=0}^{4-1} \frac{(\frac{12}{5})^n}{n!} + (\frac{12}{5}^{4} \times \frac{1}{4!} \times \frac{4 \times 5}{4 \times 5 - 12}\Bigr)^{-1} = 0.083\\
+    L = 4 \times 0.6 + \frac{(4 \times 0.6)^{4+1} \times 0.083}{4 \times 4! \times (1 - 0.6)^2} = 2.831\\
+    w = \frac{2.831}{12} = 0.236\\
+    w_q = w - \frac{1}{\mu} = 0.236 - 0.2 = 0.036\\
+    \text{\lr{annual cost}} = 0.036 \times 12 \times 3600 \times 24 \times 365 \times 0.001 = 13578.291\$
+\end{gather*}
+که هزینه‌ی آن
+$13578.291 + 70000 = 83578.291\$$
+است.
+
+پس بهتر است که سرور را صرفا ارتقا دهیم.
