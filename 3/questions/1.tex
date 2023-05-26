@@ -1,5 +1,44 @@
 \section*{سوال 1}
-
+\begin{enumerate}
+    \item این مدل صف ما عملا
+    $M/M/1/\infty/\infty$
+    و
+    $M/M/1/m/\infty$
+    است. از خواص صف‌های
+    $M/M/1$
+    می‌دانیم که
+    $\rho = \frac{\lambda}{\mu}$
+    است. پس باید عملا احتمال این را حساب کنیم که بیشتر از
+    $m$
+    نفر در سیستم باشند (که بافر داخلی پر باشد). به عبارت دیگر داریم:
+    \begin{gather*}
+        \sum_{i=m+1}^{\infty} P_i = \sum_{i=m+1}^{\infty} (1 - \rho) \rho^n = \sum_{i=m+1}^{\infty} (1 - \frac{\lambda}{\mu}) (\frac{\lambda}{\mu})^n = (1 - \frac{\lambda}{\mu}) \sum_{i=m+1}^{\infty} (\frac{\lambda}{\mu})^n =\\
+        (1 - \frac{\lambda}{\mu}) (\sum_{i=0}^{\infty} (\frac{\lambda}{\mu})^n - \sum_{i=0}^{m} (\frac{\lambda}{\mu})^n) = (1 - \frac{\lambda}{\mu}) (\frac{1}{1 - \frac{\lambda}{\mu}} - \frac{1 - (\frac{\lambda}{\mu})^m}{1 - \frac{\lambda}{\mu}}) = (\frac{\lambda}{\mu})^m
+    \end{gather*}
+    \item کافی است که $1 - P_0$ را حساب کنیم.
+    \begin{gather*}
+        1 - (1 - \rho) \rho^0 = \frac{\lambda}{\mu}
+    \end{gather*}
+    \item عملا باید $w_q$ را حساب کنیم.
+    \begin{gather*}
+        w_q = \frac{\lambda}{\mu(\mu - \lambda)}
+    \end{gather*}
+    \item عملا باید معادله‌ی زیر را بر حسب
+    $m$
+    حل کنیم:
+    \begin{gather*}
+        \sum_{i=0}^{m+1} P_i = \gamma \implies\\
+        (1 - \frac{\lambda}{\mu}) \sum_{i=0}^{m+1} (\frac{\lambda}{\mu})^n = (1 - \frac{\lambda}{\mu}) \frac{1 - (\frac{\lambda}{\mu})^{m+1}}{1 - \frac{\lambda}{\mu}} = 1 - (\frac{\lambda}{\mu})^{m+1} = \gamma \implies\\
+        m + 1 = \frac{\ln (1 - \gamma)}{\ln (\frac{\lambda}{\mu})} = \log_{\frac{\lambda}{\mu}} (1 - \gamma) \implies\\
+        m = \log_{\frac{\lambda}{\mu}} (1 - \gamma) - 1
+    \end{gather*}
+    \item عددگذاری می‌کنیم:
+    \begin{gather*}
+        L = \frac{\lambda}{\mu - \lambda} = \frac{50}{60 - 50} = 5\\
+        W = \frac{1}{\mu - \lambda} = \frac{1}{60 - 50} = \frac{1}{10}\\
+        \rho = \frac{\lambda}{\mu} = \frac{50}{60} = \frac{5}{6}
+    \end{gather*}
+\end{enumerate}
 
 
 
