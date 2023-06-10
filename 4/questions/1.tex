@@ -32,12 +32,12 @@ $0 < u < \frac{2^3}{16} = \frac{1}{2}$ و $\frac{1}{2} < u < 1$
 برای قسمت دوم نیز داریم:
 \begin{gather*}
     F(F^{-1}(u)) = \frac{1}{2} - \frac{1}{2} e^{-2F^{-1}(u)} = u \implies 1 - 2u = e^{-2F^{-1}(u)}\\
-    \implies \ln(1 - 2u) = -2F^{-1}(u) \implies F^{-1}(u) = \frac{\ln(1 - 2u)}{2}
+    \implies \ln(1 - 2u) = -2F^{-1}(u) \implies F^{-1}(u) = \frac{\ln(1 - 2u)}{-2}
 \end{gather*}
 در نهایت پس می‌شود:
 \begin{gather*}
     F^{-1}(x) = \begin{cases}
         \sqrt[3]{\frac{16u}{3}} & 0 < x < 0.5\\
-        \frac{\ln(1 - 2u)}{2} & 0.5 < x < 1
+        \frac{\ln(1 - 2u)}{-2} & 0.5 < x < 1
       \end{cases}
 \end{gather*}

@@ -1,1 +1,69 @@
 \section*{سوال 5}
+\begin{enumerate}
+    % https://stats.stackexchange.com/q/92627
+    \item برای این قسمت در ابتدا باید میانگین داده‌ها را بدست بیاریم و به کمک
+    \lr{Chi-Squared test}
+    با توزیع پوآسونی که از میانگین داده‌ها پیروی می‌کند مسئله را حل کنیم.
+    میانگین داده‌ها برابر است با
+    $\frac{0\times30 + 1 \times 45 + 2 \times 15 + 3 \times 7 + 4 \times 2 + 5 \times 1}{100} = 1.09$.
+    حال دسته بندی به صورت زیر می‌شود:
+    \begin{center}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        تعداد حوادث & تعداد واقعی & تعداد پیش بینی شده\\
+        \hline
+        $0$ & $30$ & $100 \times \frac{1.09^0 e^{-1.09}}{0!} \approx 33$\\
+        \hline
+        $1$ & $45$ & $100 \times \frac{1.09^1 e^{-1.09}}{1!} \approx 37$ \\
+        \hline
+        $2$ & $15$ & $100 \times \frac{1.09^2 e^{-1.09}}{2!} \approx 20$ \\
+        \hline
+        $3$ & $4$ & $100 \times \frac{1.09^3 e^{-1.09}}{3!} \approx 7$ \\
+        \hline
+        $4$ & $2$ & $100 \times \frac{1.09^4 e^{-1.09}}{4!} \approx 2$ \\
+        \hline
+        $5$ & $1$ & $100 \times \frac{1.09^5 e^{-1.09}}{5!} \approx 0$ \\
+        \hline
+    \end{tabular}
+    \end{center}
+    پس برای
+    \lr{Chi-Squared test}
+    داریم:
+    \begin{gather*}
+        \chi^2_0 = \frac{(30 - 33)^2}{33} + \frac{(45 - 37)^2}{37} + \frac{(15 - 20)^2}{20} + \frac{(4 - 7)^2}{7} + \frac{(2 - 2)^2}{2} + \frac{(0 - 1)^2}{1} \approx 5.54
+    \end{gather*}
+    با توجه به
+    \link{http://cavrep.com.au/C/CHISQUARETABLE_html_m444bef9.jpg}{این}
+    جدول، ردیف 5 ستون
+    \lr{0.05}
+    مقدار نوشته شده برابر
+    \lr{11.07}
+    است و از آنجایی که از
+    $\chi^2$
+    بزرگتر است فرض صفر رد نمی‌شود.
+    \item دوباره جدول را تشکیل می‌دهیم:
+    \begin{center}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            تعداد حوادث & تعداد واقعی & تعداد پیش بینی شده\\
+            \hline
+            $0$ & $30$ & $100 \times \frac{1.5^0 e^{-1.5}}{0!} \approx 22$\\
+            \hline
+            $1$ & $45$ & $100 \times \frac{1.5^1 e^{-1.5}}{1!} \approx 33$ \\
+            \hline
+            $2$ & $15$ & $100 \times \frac{1.5^2 e^{-1.5}}{2!} \approx 25$ \\
+            \hline
+            $3$ & $4$ & $100 \times \frac{1.5^3 e^{-1.5}}{3!} \approx 12$ \\
+            \hline
+            $4$ & $2$ & $100 \times \frac{1.5^4 e^{-1.5}}{4!} \approx 4$ \\
+            \hline
+            $5$ & $1$ & $100 \times \frac{1.5^5 e^{-1.5}}{5!} \approx 1$ \\
+            \hline
+        \end{tabular}
+    \end{center}
+    پس داریم:
+    \begin{gather*}
+        \chi^2_0 = \frac{(30 - 22)^2}{22} + \frac{(45 - 33)^2}{33} + \frac{(15 - 25)^2}{25} + \frac{(4 - 12)^2}{12} + \frac{(2 - 4)^2}{4} + \frac{(0 - 1)^2}{1} \approx 18.6
+    \end{gather*}
+    این بار عدد ما از 11 بیشتر شد پس می‌توان گفت که این این اعداد از توزیع داده شده پیروی نمی‌کنند.
+\end{enumerate}
