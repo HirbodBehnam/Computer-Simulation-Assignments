@@ -1,0 +1,103 @@
+% !TEX program = xelatex
+\documentclass[]{article}
+\usepackage{commons/course}
+
+\begin{document}
+\printheader
+
+\section{}
+به صورت خلاصه می‌توان گفت که اعداد تصادفی
+\lr{Pseudo Randoms}
+واقعا بر حسب شانس بدست نمی‌آیند و واقعی نیستند ولی اعدادی هستند که می‌توان آنها را به عنوان اعداد
+تصادفی در نظر گرفت ولی در عمل صرفا یک دنباله از اعداد هستند که در صورتی که چندین‌تای آنها را داشت
+می‌توان کل دنباله را بدست آورد. از طرفی دیگر
+\lr{random generator}ها
+بر اساس اتفاقات رندوم در طبیعت مثل
+\lr{atmospheric noise}
+کار می‌کنند. همچنین جا دارد که به
+\lr{CRNG}ها
+نیز اشاره بکنم که برای ساخت اعداد تصادفی مناسب رمزنگاری استفاده می‌شوند.
+
+\section{}
+\lr{Bathtub curve}
+یک منحنی است که احتمال خراب شدن قطعه‌ای را بر حسب زمان نشان می‌دهد. در ابتدای زمان ساخت برخی از
+قطعات به صورت ذاتی خراب هستند و کمی بعد از کار کردن خراب می‌شوند. سپس قطعات سالم می‌مانند تا زمان زیادی و بعد از کارکرد
+بسیار زیاد باز احتمال خراب شدن بیشتر می‌شود.
+به همین منظور کارخانه‌ها بعد از تولید یک قطعه معمولا کمی آنرا مورد استفاده قراره می‌دهند که از این خرابی زودرس جلوگیری کنند.
+
+\section{}
+\begin{align*}
+    E[X] &= \sum x P(X = x)\\
+    &= \sum_{k \mathop = 0}^n k {n \choose k} p^k q^{n - k}\\
+    &= \sum_{k \mathop = 1}^n k {n \choose k} p^k q^{n - k}\\
+    &= n p \sum_{k \mathop = 1}^n {{n - 1} \choose {k - 1}} p^{k - 1} q^{(n - 1) - (k - 1)}\\
+    &\stackrel{m=n-1, j=k-1}{=} = n p \sum_{j \mathop = 0}^m {m \choose j} p^j q^{m - j}\\
+    &= np
+\end{align*}
+
+\section{}
+\begin{gather*}
+    E[X] = a + (b - a) \frac{\beta_1}{\beta_1 + \beta_2}\\
+    V[X] = (b - a)^2 \frac{\beta_1 \beta_2}{(\beta_1+\beta_2)^2 (\beta_1 + \beta_2 + 1)}
+\end{gather*}
+
+\section{}
+نکته‌ای که وجود دارد این است که زمان یک متغیر پیوسته است و برای همین به انتگرال نیاز داریم. همچنین لزومی
+ندارد که متغیر ما به صورت ثابت باشد و می‌تواند حتی نسبت به زمان تغییر نیز بکند برای همین ما نیاز
+به همچین عبارتی داریم.
+
+\section{}
+% a = np.array([[0.3, 0.2, 0.5],[0.4,0.3,0.3],[0.3,0.4,0.3]])
+% np.array([1, 0, 0]) @ a @ a @ a @ a @ a @ a @ a @ a @ a @ a
+\begin{gather*}
+    \begin{bmatrix}
+        1 & 0 & 0
+    \end{bmatrix}
+    \times
+    \left(
+        \begin{bmatrix}
+            0.3 & 0.2 & 0.5\\
+            0.4 & 0.3 & 0.3\\
+            0.3 & 0.4 & 0.3
+        \end{bmatrix}
+    \right)^\infty
+    =
+    \begin{bmatrix}
+        0.3303 & 0.3035 & 0.366
+    \end{bmatrix}\\
+    \begin{bmatrix}
+        0 & 1 & 0
+    \end{bmatrix}
+    \times
+    \left(
+        \begin{bmatrix}
+            0.3 & 0.2 & 0.5\\
+            0.4 & 0.3 & 0.3\\
+            0.3 & 0.4 & 0.3
+        \end{bmatrix}
+    \right)^\infty
+    =
+    \begin{bmatrix}
+        0.3303 & 0.3035 & 0.366
+    \end{bmatrix}\\
+    \begin{bmatrix}
+        0 & 0 & 1
+    \end{bmatrix}
+    \times
+    \left(
+        \begin{bmatrix}
+            0.3 & 0.2 & 0.5\\
+            0.4 & 0.3 & 0.3\\
+            0.3 & 0.4 & 0.3
+        \end{bmatrix}
+    \right)^\infty
+    =
+    \begin{bmatrix}
+        0.3303 & 0.3035 & 0.366
+    \end{bmatrix}
+\end{gather*}
+مشاهده می‌شود که تمامی جواب‌ها یکسان شد!
+
+\section{}
+
+\end{document}
